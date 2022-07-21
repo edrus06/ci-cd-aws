@@ -1,0 +1,38 @@
+name: OIDC Continuos Deployment
+
+
+# This workflow is triggered whenever commits are pushed to the main branch
+
+on:
+  push:
+    branches:
+      - 'main'
+    path:
+      - 'docker/**'
+    workflow_dispatch:
+  
+permissions:
+  id-token: write
+  contents: read
+
+default:
+  run:
+    shell: bash
+    working-directory: ./docker
+    
+jobs:
+  deploy_production:
+    environment: production
+    name: 'Deploy to production'
+    runs-on: ubuntu-latest
+    
+    steps: 
+    - uses: actions/checkout@v2
+      name: 'Checkout Repository'
+    - name: Deploy Changes
+      run: |
+        ls -lart 
+      
+
+  
+
