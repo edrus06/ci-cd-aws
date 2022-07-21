@@ -23,6 +23,9 @@ defaults:
 jobs:
   deploy_acceptance:
     environment: ACC
+    name: 'Deploy to ACC'
+    runs-on: ubuntu-latest
+    steps:
     - name: Echo Environment secrets
       run: |
         echo ${{ secrets.TEST }}
