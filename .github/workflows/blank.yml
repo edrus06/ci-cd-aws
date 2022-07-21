@@ -15,7 +15,7 @@ permissions:
   id-token: write
   contents: read
 
-default:
+defaults:
   run:
     shell: bash
     working-directory: ./docker
