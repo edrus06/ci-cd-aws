@@ -21,6 +21,11 @@ defaults:
     working-directory: ./docker
     
 jobs:
+  deploy_acceptance:
+    environment: ACC
+    - name: Echo Environment secrets
+      run: |
+        echo ${{ secrets.TEST }}
   deploy_production:
     environment: production
     name: 'Deploy to production'
