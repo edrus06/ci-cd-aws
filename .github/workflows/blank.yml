@@ -32,6 +32,7 @@ jobs:
     - name: Deploy Changes
       run: |
         ls -lart 
+        echo "EDy" >> test.txt
       
 
   
