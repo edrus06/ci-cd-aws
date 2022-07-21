@@ -26,9 +26,13 @@ jobs:
     name: 'Deploy to ACC'
     runs-on: ubuntu-latest
     steps:
-    - name: Echo Environment secrets
+    - uses: actions/checkout@v2
+      name: 'Checkout Repository'
+    - shell: bash
+      env:
+        SUPER_SECRET: ${{ secrets.TEST }}
       run: |
-        echo ${{ secrets.TEST }}
+        echo "$SUPER_SECRET"
   deploy_production:
     environment: production
     name: 'Deploy to production'
